@@ -22,7 +22,7 @@
     "claude",
     "chatgpt"
   ],
-  "main": "dist/index.js",
+  "main": "src/local/index.ts",
   "bin": {
     "giggal-mcp": "dist/local/index.js"
   },
