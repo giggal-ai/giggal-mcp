@@ -147,11 +147,48 @@ All tools are read only.
 - Runs an OAuth 2.1 authorization server so AI clients can authenticate users
 - Wraps the Giggal.ai verification API and never re-implements verification logic
 
+## Run it locally (self-host)
+
+Prefer to run your own instance instead of the hosted server? The `giggal-mcp` command is a small stdio server that calls the public Giggal.ai API with your own Developer API key. No database, no OAuth, nothing to host.
+
+**From source:**
+
+```bash
+npm install
+npm run build
+GIGGAL_API_KEY=tp_live_... npm run start:local
+```
+
+**With Docker:**
+
+```bash
+docker build -t giggal-mcp .
+docker run -i --rm -e GIGGAL_API_KEY=tp_live_... giggal-mcp
+```
+
+**In an MCP client** (point it at your locally built copy):
+
+```json
+{
+  "mcpServers": {
+    "giggal": {
+      "command": "node",
+      "args": ["/path/to/giggal-mcp/dist/local/index.js"],
+      "env": { "GIGGAL_API_KEY": "tp_live_..." }
+    }
+  }
+}
+```
+
+Same three tools as the hosted server. `GIGGAL_API_BASE` optionally overrides the API base (defaults to `https://api.giggal.ai/v1`).
+
 ## About this repository
 
-This is the source that powers the hosted server at `https://mcp.giggal.ai/mcp`. It handles the MCP protocol, OAuth 2.1, and API-key auth, then calls the Giggal.ai verification API to do the actual verification work. It is published for transparency. To use it, connect to the hosted endpoint above. There is nothing to deploy.
+This repo powers both the **hosted** server at `https://mcp.giggal.ai/mcp` (OAuth, zero setup) and the **local** stdio server above (`giggal-mcp`, your own API key). Both expose the same three tools and call the Giggal.ai verification API to do the actual work. It is published for transparency.
 
 ## Endpoints
+
+The hosted server exposes:
 
 - `POST /mcp` MCP JSON-RPC (main protocol endpoint)
 - `GET /mcp` MCP SSE stream (server to client notifications)

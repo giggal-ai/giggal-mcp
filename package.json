@@ -23,11 +23,16 @@
     "chatgpt"
   ],
   "main": "dist/index.js",
+  "bin": {
+    "giggal-mcp": "dist/local/index.js"
+  },
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "dev": "tsx watch src/index.ts",
     "start": "node dist/index.js",
+    "start:local": "node dist/local/index.js",
+    "dev:local": "tsx watch src/local/index.ts",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "test": "vitest run",
     "test:watch": "vitest"
@@ -38,6 +43,7 @@
     "@fastify/formbody": "^7.4.0",
     "@fastify/rate-limit": "^9.1.0",
     "@fastify/session": "^10.9.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
     "bcrypt": "^5.1.1",
     "dotenv": "^16.4.5",
     "fastify": "^4.28.1",
