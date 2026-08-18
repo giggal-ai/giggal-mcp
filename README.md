@@ -147,21 +147,9 @@ All tools are read only.
 - Runs an OAuth 2.1 authorization server so AI clients can authenticate users
 - Wraps the Giggal.ai verification API and never re-implements verification logic
 
-## Self-hosting
+## About this repository
 
-```bash
-npm install
-npm run build
-npm start
-```
-
-Set the required environment variables before starting (database connection, Giggal.ai API base, OAuth issuer, and session secret). For local development, `npm run dev` runs with hot reload.
-
-Health check:
-
-```bash
-curl http://localhost:5100/health
-```
+This is the source that powers the hosted server at `https://mcp.giggal.ai/mcp`. It handles the MCP protocol, OAuth 2.1, and API-key auth, then calls the Giggal.ai verification API to do the actual verification work. It is published for transparency. To use it, connect to the hosted endpoint above. There is nothing to deploy.
 
 ## Endpoints
 
