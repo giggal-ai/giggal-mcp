@@ -1,6 +1,6 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.giggal-ai/giggal-mcp",
+  "name": "io.github.hassaanali723/giggal-mcp",
   "title": "Giggal.ai",
   "description": "Runs a deep mailbox existence check to verify catch-all, accept-all, and SEG protected emails.",
   "version": "0.2.0",
