@@ -1,6 +1,6 @@
 # Giggal.ai MCP Server
 
-[![smithery badge](https://smithery.ai/badge/hassaanali723/giggal)](https://smithery.ai/servers/hassaanali723/giggal)
+[Available on Smithery](https://smithery.ai/servers/hassaanali723/giggal)
 
 Verify catch-all, accept-all, and SEG-protected email addresses without leaving Claude, ChatGPT, Cursor, VS Code, or any other MCP client. This is the official [Model Context Protocol](https://modelcontextprotocol.io) server for [Giggal.ai](https://giggal.ai), the catch-all email verification tool that confirms the mailboxes other verifiers write off as "risky" or "unknown."
 
