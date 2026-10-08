@@ -127,12 +127,12 @@ export async function pollBatch(batchId: string): Promise<BatchPollResponse> {
 
   const results = await fetchAllJobResults(batchId, 1000);
   const balance = await getCredits();
-  // Catch-all rescue is always ON for MCP batches, so every email costs
-  // 1.5 credits; the backend floors the total, mirrored here.
+  // Catch-all rescue is always ON for MCP batches and every email costs
+  // 1 credit, rescue included.
   return {
     status: "completed",
     results,
-    credits_used: Math.floor(results.length * 1.5),
+    credits_used: results.length,
     credits_remaining: balance.availableCredits,
   };
 }
